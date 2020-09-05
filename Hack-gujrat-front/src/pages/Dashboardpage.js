@@ -32,17 +32,10 @@ const DashboardPage = (props) => {
     const name = chatroomNameRef.current.value;
     axios
     .post("http://localhost:8000/chatroom", {
-<<<<<<< HEAD
         name:chatroomName
     }).then((response)=>{
       makeToast("success", response.data.message)
       getChatrooms();
-=======
-        name
-    }).then((response)=>{
-      makeToast("success", response.data.message)
-      
->>>>>>> 12adb426c3d17633d464a3063cd2e3a6966d2357
     }).catch((err)=>console.log(err))
   }
 

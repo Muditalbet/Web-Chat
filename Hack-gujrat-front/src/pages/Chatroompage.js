@@ -1,12 +1,25 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Card, CardContent, Typography } from '@material-ui/core';
+import axios from 'axios'
 
 const ChatroomPage = ({ match, socket }) => {
   const chatroomId = match.params.id;
   const [messages, setMessages] = React.useState([]);
   const messageRef = React.useRef();
   const [userId, setUserId] = React.useState("");
+
+  React.useEffect(()=>{
+    getMessages();
+  })
+  // const getMessages = () =>{
+  //   axios
+  //   .get("http://localhost:8000/messages", {
+  //     id:chatroomId
+  //   }).then((response)=>{
+  //     setMessages(response.data)
+  //   }).catch((err)=>{console.log("err")})
+  // }
 
   const sendMessage = () => {
     if (socket) {

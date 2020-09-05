@@ -38,13 +38,6 @@ function App() {
   }, []);
   return(
     <BrowserRouter>
-        <Link to="/login">
-          <button
-            onClick={()=>{
-              localStorage.clear()
-            }}
-          >logout</button>
-        </Link>
       <Switch>
         <Route path="/" component={IndexPage} exact />
         <Route path="/login" render={()=><LoginPage setupSocket={setupSocket} />} exact />

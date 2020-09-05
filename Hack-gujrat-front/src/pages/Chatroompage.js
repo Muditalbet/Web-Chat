@@ -1,5 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import { Card, CardContent, Typography } from '@material-ui/core';
 
 const ChatroomPage = ({ match, socket }) => {
   const chatroomId = match.params.id;
@@ -53,25 +54,36 @@ const ChatroomPage = ({ match, socket }) => {
 
   return (
     <div className="chatroomPage">
+        <Link to="/login">
+          <button
+            onClick={()=>{
+              localStorage.clear()
+            }}
+          >logout</button>
+        </Link>
       <div className="chatroomSection">
         <div className="cardHeader">Chatroom Name</div>
         <div className="chatroomContent">
-          {messages.map((message, i) => (
-            <div key={i} className="message">
-              <span
-                className={
-                  userId === message.userId ? "ownMessage" : "otherMessage"
-                }
-              >
+          {messages.map((message, i) => {
+              const isUser = userId === messages.userId;
+              return (
+                <Card style={{margin:"10px", width:"70%"}}>
+                <CardContent>
+                <Typography key={i} className="message">
+                  <span className={userId === message.userId ? "ownMessage" : "otherMessage"}>
                 {message.name}:
               </span>{" "}
               {message.message}
-            </div>
-          ))}
+            </Typography>
+            </CardContent>
+            </Card>
+              )
+          })}
         </div>
         <div className="chatroomActions">
           <div>
             <input
+              className="input"
               type="text"
               name="message"
               placeholder="Say something!"

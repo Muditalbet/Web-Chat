@@ -23,12 +23,13 @@ const DashboardPage = (props) => {
 
   const createChatroom = () =>{
     // console.log("test")
-    const chatroomName = chatroomNameRef.current.value;
+    const name = chatroomNameRef.current.value;
     axios
     .post("http://localhost:8000/chatroom", {
-        chatroomName
+        name
     }).then((response)=>{
-      makeToast("created", response.data.message)
+      makeToast("success", response.data.message)
+      
     }).catch((err)=>console.log(err))
   }
 
@@ -38,6 +39,14 @@ const DashboardPage = (props) => {
   }, []);
 
   return (
+    <div>
+        <Link to="/login">
+          <button
+            onClick={()=>{
+              localStorage.clear()
+            }}
+          >logout</button>
+        </Link>
     <div className="card">
       <div className="cardHeader">Chatrooms</div>
       <div className="cardBody">
@@ -45,8 +54,8 @@ const DashboardPage = (props) => {
           <label htmlFor="chatroomName">Chatroom Name</label>
           <input
             type="text"
-            name="chatroomName"
-            id="chatroomName"
+            name="name"
+            id="name"
             placeholder="Enter chat box name"
             ref={chatroomNameRef}
           />
@@ -63,6 +72,7 @@ const DashboardPage = (props) => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

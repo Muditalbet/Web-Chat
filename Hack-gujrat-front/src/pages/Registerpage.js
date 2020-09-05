@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import makeToast from '../Toaster';
+import Logo from '../assets/logo.png';
+
 const RegisterPage = (props) => {
     const nameRef = React.createRef();
     const emailRef = React.createRef();
@@ -27,6 +29,8 @@ const RegisterPage = (props) => {
     };
   
     return (
+      <div>
+                <img src={Logo} />
       <div className="card">
         <div className="cardHeader">Registration</div>
         <div className="cardBody">
@@ -60,6 +64,7 @@ const RegisterPage = (props) => {
           />
         </div>
         <button onClick={registerUser}>Register</button>
+      </div>
       </div>
     );
   };

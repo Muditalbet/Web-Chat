@@ -12,7 +12,7 @@ exports.register = async (req, res) => {
   if (password.length < 6) throw "Password must be atleast 6 characters long.";
 
   const userExists = await User.findOne({
-    email,
+    email:{ $regex : new RegExp(email, "i") },
   });
 
   if (userExists) throw "User with same email already exits.";
@@ -24,9 +24,10 @@ exports.register = async (req, res) => {
     });
   
     await user.save();
-  
+    const token = await jwt.sign({id:user._id}, process.env.SECRET)
     res.json({
       message: "User [" + name + "] registered successfully!",
+      token
     });
   }
 };
@@ -34,7 +35,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({
-    email,
+    email:{ $regex : new RegExp(email, "i") },
     password: sha256(password + process.env.SALT)
   });
 

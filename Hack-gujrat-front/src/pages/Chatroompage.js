@@ -13,7 +13,6 @@ const ChatroomPage = ({ match, socket }) => {
         chatroomId,
         message: messageRef.current.value,
       });
-
       messageRef.current.value = "";
     }
   };

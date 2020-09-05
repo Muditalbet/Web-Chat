@@ -6,6 +6,12 @@ import makeToast from "../Toaster";
 const DashboardPage = (props) => {
   const chatroomNameRef = React.createRef()
   const [chatrooms, setChatrooms] = React.useState([]);
+  
+  React.useEffect(() => {
+    getChatrooms();
+    // eslint-disable-next-line
+  }, []);
+  
   const getChatrooms = () => {
     axios
       .get("http://localhost:8000/chatroom", {
@@ -26,16 +32,13 @@ const DashboardPage = (props) => {
     const chatroomName = chatroomNameRef.current.value;
     axios
     .post("http://localhost:8000/chatroom", {
-        chatroomName
+        name:chatroomName
     }).then((response)=>{
-      makeToast("created", response.data.message)
+      makeToast("success", response.data.message)
+      getChatrooms();
     }).catch((err)=>console.log(err))
   }
 
-  React.useEffect(() => {
-    getChatrooms();
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <div className="card">

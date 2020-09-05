@@ -29,7 +29,7 @@ const DashboardPage = (props) => {
 
   const createChatroom = () =>{
     // console.log("test")
-    const name = chatroomNameRef.current.value;
+    const chatroomName = chatroomNameRef.current.value;
     axios
     .post("http://localhost:8000/chatroom", {
         name:chatroomName

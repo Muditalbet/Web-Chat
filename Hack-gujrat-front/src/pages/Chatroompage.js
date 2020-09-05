@@ -9,9 +9,9 @@ const ChatroomPage = ({ match, socket }) => {
   const messageRef = React.useRef();
   const [userId, setUserId] = React.useState("");
 
-  React.useEffect(()=>{
-    getMessages();
-  })
+  // React.useEffect(()=>{
+  //   getMessages();
+  // })
   // const getMessages = () =>{
   //   axios
   //   .get("http://localhost:8000/messages", {

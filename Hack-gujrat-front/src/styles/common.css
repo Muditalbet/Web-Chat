@@ -1,35 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
-  font-family: Montserrat;
+  font-family: Roboto;
   box-sizing: border-box;
-  color: #333;
+  color: black;
 }
 
+img{
+  width:150px;
+  object-fit: contain;
+  display: block;
+  margin-left:  auto;
+  margin-right:  auto;
+  margin-top: 60px;
+  
+}
 body {
-  font-size: 16px;
+  font-size: 28px;
+  background-color:#ffd9b3;
 }
 
 .card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 4px;
-  padding: 1rem;
+  padding: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
   position: relative;
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 25vw;
+  width: 35vw;
+  background-color: white;
   transform: translate(-50%, -50%);
 }
 
 .cardHeader {
-  background: #f7c52a;
-  padding: 0.75rem 1.5rem;
+  background: #66b3ff;
+  padding: 0.60rem 1.1rem;
   border-radius: 2px;
   text-transform: uppercase;
-  transform: skewY(-4deg);
-  font-size: 1.1rem;
-  font-weight: bold;
+  transform: skewY(-0deg);
+  font-size: 1.6rem;
+  font-weight: 700;
   display: inline-block;
   position: absolute;
   top: -1rem;
@@ -37,7 +50,7 @@ body {
 }
 
 .cardBody {
-  margin-top: 2rem;
+  margin-top: 2.4rem;
 }
 
 .inputGroup {
@@ -45,33 +58,40 @@ body {
 }
 
 label {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 input {
   border: none;
-  padding: 0.5rem 0.1rem;
+  padding: 0.8rem 0.5rem;
   width: 100%;
   border-radius: 2px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgb(80, 78, 78);
   transition: all 0.5s;
+  margin-bottom: 25px;
 }
 
 input:focus {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(83, 82, 82);
 }
 
 button {
   background: #f7c52a;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
   border: none;
   padding: 0.75rem 1.5rem;
+  margin: 20px 0;
   border-radius: 2px;
   width: 100%;
   text-transform: uppercase;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .chatrooms {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .chatroom {
@@ -83,7 +103,7 @@ button {
 
 .join {
   background: #f7c52a;
-  padding: 0.25rem 1rem;
+  padding: 0.35rem 1rem;
   border-radius: 2px;
 }
 a{

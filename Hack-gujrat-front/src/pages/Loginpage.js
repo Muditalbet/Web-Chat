@@ -2,6 +2,8 @@ import React from "react";
 import makeToast from "../Toaster";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Logo from '../assets/logo.png';
+
 
 const LoginPage = (props) => {
   const emailRef = React.createRef();
@@ -35,6 +37,9 @@ const LoginPage = (props) => {
   };
 
   return (
+    <div>
+                <img src={Logo} />
+
     <div className="card">
       <div className="cardHeader">Login</div>
       <div className="cardBody">
@@ -60,6 +65,8 @@ const LoginPage = (props) => {
         </div>
         <button onClick={loginUser}>Login</button>
       </div>
+    </div>
+    
     </div>
   );
 };

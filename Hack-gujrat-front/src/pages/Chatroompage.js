@@ -9,17 +9,6 @@ const ChatroomPage = ({ match, socket }) => {
   const messageRef = React.useRef();
   const [userId, setUserId] = React.useState("");
 
-  // React.useEffect(()=>{
-  //   getMessages();
-  // })
-  // const getMessages = () =>{
-  //   axios
-  //   .get("http://localhost:8000/messages", {
-  //     id:chatroomId
-  //   }).then((response)=>{
-  //     setMessages(response.data)
-  //   }).catch((err)=>{console.log("err")})
-  // }
 
   const sendMessage = () => {
     if (socket) {
@@ -79,7 +68,7 @@ const ChatroomPage = ({ match, socket }) => {
           {messages.map((message, i) => {
               const isUser = userId === messages.userId;
               return (
-                <Card style={{margin:"10px", width:"70%"}}>
+                <Card style={{margin:"15px", width:"70%", backgroundColor:"#e6f7ff"}}>
                 <CardContent>
                 <Typography key={i} className="message">
                   <span className={userId === message.userId ? "ownMessage" : "otherMessage"}>
